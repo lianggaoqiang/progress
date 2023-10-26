@@ -39,6 +39,21 @@ func TestAutoStop(t *testing.T) {
 	}
 }
 
+func TestUseStoppedProgress(t *testing.T) {
+	defer func() {
+		if ok := recover(); ok == nil {
+			t.Error("no panic when using progress with closed state")
+		}
+	}()
+	p := progress.Start()
+	b := progress.NewBar()
+	p.AddBar(b)
+	p.Stop()
+	for i := 0; i <= 100; i++ {
+		b.Inc()
+	}
+}
+
 //go:linkname parseSteps github.com/lianggaoqiang/progress.parseSteps
 func parseSteps(steps []string)
 func TestStepParsed(t *testing.T) {

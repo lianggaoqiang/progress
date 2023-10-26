@@ -21,9 +21,8 @@ var (
 	mtx        sync.Mutex
 	ins        *Progress         // the global unique instance of Progress
 	mode       uint8             // the flag will be set when StartWithFlag is called
-	renderSig  = make(chan int)  // the signal to render contents of progress bar
+	renderSig  chan int          // the signal to render contents of progress bar
 	couldPrint = make(chan bool) // the signal to ensure printing this time is ended
-	closeDone  = make(chan bool) // the signal of progress closing completion, it could ensure terminal mode is restored
 )
 
 // define flags

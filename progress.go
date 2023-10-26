@@ -20,12 +20,13 @@ func StartWithFlag(flag uint8) *Progress {
 	// duplicate instantiation
 	if ins != nil {
 		renderSig <- 3
-		<-closeDone
+		<-couldPrint
 		panic("Progress had already been instantiated, you can use Stop to unregister the instance")
 	}
 
 	mode = flag
 	ins = &Progress{}
+	renderSig = make(chan int)
 	go ins.render()
 	return ins
 }
@@ -52,7 +53,7 @@ func (p *Progress) Stop() error {
 	defer mtx.Unlock()
 	if ins != nil {
 		renderSig <- 3
-		<-closeDone
+		<-couldPrint
 		return nil
 	}
 	return errors.New("progress is already in closed state")
@@ -72,7 +73,8 @@ func (p *Progress) render() {
 		}
 		ins = nil
 		pt.Stop()
-		closeDone <- true
+		close(renderSig)
+		couldPrint <- true
 	}()
 
 	for {
@@ -172,8 +174,9 @@ func (p *Progress) render() {
 				progressShouldBeEnd = false
 			}
 
-			couldPrint <- true
-			if progressShouldBeEnd {
+			if !progressShouldBeEnd {
+				couldPrint <- true
+			} else {
 				return
 			}
 		} else {
