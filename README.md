@@ -61,7 +61,7 @@ func main() {
 }
 ```
 
-<img src="https://github.com/lianggaoqiang/single-line-print/blob/main/doc/simple-example.gif" style="width:70%;border-radius:6px;" />
+<img src="https://github.com/lianggaoqiang/progress/blob/main/doc/custom-bar.gif" style="width:70%;border-radius:6px;" />
 
 The `BarSetting` structure contains rich customization related properties to modify the style of progress bar:
 
