@@ -5,7 +5,7 @@ build: build-sys build-win build-linux build-darwin
 
 .PHONY: build-sys
 build-sys:
-	go build -o bin-sys ./p/t.go
+	go build -o bin-sys ./tests/build.go
 
 .PHONY: build-win
 build-win:
