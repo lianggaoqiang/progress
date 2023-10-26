@@ -1,4 +1,4 @@
-BuildCmd = CGO_ENABLED=0 GOARCH=amd64 go build -o _ ./p/t.go
+BuildCmd = CGO_ENABLED=0 GOARCH=amd64 go build -o _ ./tests/build.go
 
 .PHONY: build
 build: build-sys build-win build-linux build-darwin
