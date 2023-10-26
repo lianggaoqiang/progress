@@ -1,9 +1,9 @@
-# progress [![](https://camo.githubusercontent.com/315a8800fc96d3c5b32e13227b10500ef850688793cc6664418d018980eb3cb4/68747470733a2f2f676f646f632e6f72672f6769746875622e636f6d2f676f737572692f75696c6976653f7374617475732e737667)](https://pkg.go.dev/github.com/lianggaoqiang/single-line-print) [![https://github.com/lianggaoqiang/single-line-print/blob/main/LICENSE](https://img.shields.io/badge/license-MIT-red.svg)](https://github.com/lianggaoqiang/single-line-print/blob/main/LICENSE) [![](https://github.com/lianggaoqiang/single-line-print/actions/workflows/ci.yml/badge.svg)](https://github.com/lianggaoqiang/single-line-print/actions/workflows/ci.yml)
+# progress [![](https://camo.githubusercontent.com/315a8800fc96d3c5b32e13227b10500ef850688793cc6664418d018980eb3cb4/68747470733a2f2f676f646f632e6f72672f6769746875622e636f6d2f676f737572692f75696c6976653f7374617475732e737667)](https://pkg.go.dev/github.com/lianggaoqiang/progress) [![https://github.com/lianggaoqiang/progress/blob/main/LICENSE](https://img.shields.io/badge/license-MIT-red.svg)](https://github.com/lianggaoqiang/progress/blob/main/LICENSE) [![](https://github.com/lianggaoqiang/progress/actions/workflows/ci.yml/badge.svg)](https://github.com/lianggaoqiang/progress/actions/workflows/ci.yml)
 
 A thread-safe progress bar printing program, which is designed for printing multiple bars simultaneously with a highly efficient. This package is powered by [single-line-print](https://github.com/lianggaoqiang/single-line-print)
 
 This Golang package is cross-platform which works perfectly on Linux, Windows and MacOS. It provides many very simple apis to render the progress bar with diverse styles that you want, in addition, you can also combine these different styles of progress bars in any format.
-
+ssss
 <br>
 
 ## Install
@@ -30,7 +30,7 @@ func main(){
 }
 ```
 
-<img src="https://github.com/lianggaoqiang/single-line-print/blob/main/doc/simple-example.gif" style="width:70%" />
+<img src="https://github.com/lianggaoqiang/progress/blob/main/doc/simple-bar.gif" style="width:70%" />
 
 <br>
 
@@ -61,7 +61,7 @@ func main() {
 }
 ```
 
-<img src="https://github.com/lianggaoqiang/single-line-print/blob/main/doc/simple-example.gif" style="width:70%" />
+<img src="https://github.com/lianggaoqiang/single-line-print/blob/main/doc/simple-example.gif" style="width:70%;border-radius:6px;" />
 
 The `BarSetting` structure contains rich customization related properties to modify the style of progress bar:
 
@@ -102,7 +102,7 @@ func main() {
 }
 ```
 
-<img src="https://github.com/lianggaoqiang/single-line-print/blob/main/doc/simple-example.gif" style="width:70%" />
+<img src="https://github.com/lianggaoqiang/progress/blob/main/doc/color-bar.gif" style="width:70%" />
 
 <br>
 
@@ -132,7 +132,7 @@ func main(){
 }
 ```
 
-<img src="https://github.com/lianggaoqiang/single-line-print/blob/main/doc/simple-example.gif" style="width:70%" />
+<img src="https://github.com/lianggaoqiang/progress/blob/main/doc/loading-bar.gif" style="width:70%" />
 
 You may have noticed that when we creating a LoadingBar, we need write "Loading" three times. While this is fine for short text, if the text is longer, it can cause significant inconvenience. At this point, we can use hyphen(-) to represent the previous text in steps parameter, just like the following(see more parsing rules of custom syntax at [FAQ](#faq)):
 
@@ -206,7 +206,7 @@ func main() {
 }
 ```
 
-<img src="https://github.com/lianggaoqiang/single-line-print/blob/main/doc/simple-example.gif" style="width:70%" />
+<img src="https://github.com/lianggaoqiang/progress/blob/main/doc/combine.gif" style="width:70%" />
 
 <br>
 
