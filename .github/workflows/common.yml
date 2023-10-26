@@ -1,0 +1,49 @@
+name: Common
+
+on:
+  workflow_call:
+    inputs:
+      RUNNERS:
+        required: true
+        type: string
+      GO_VERSIONS:
+        required: true
+        type: string
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        go-version: ${{ fromJSON(inputs.GO_VERSIONS) }}
+        os: ${{ fromJSON(inputs.RUNNERS) }}
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Setup Go ${{ matrix.go-version }}
+        uses: actions/setup-go@v4
+        with:
+          go-version: ${{ matrix.go-version }}
+
+      - name: Run build
+        run: make build
+
+
+  test:
+    if: ${{ success() }}
+    needs: build
+
+    strategy:
+      matrix:
+        go-version: ${{ fromJSON(inputs.GO_VERSIONS) }}
+        os: ${{ fromJSON(inputs.RUNNERS) }}
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Run test
+        run: go test ./tests -v

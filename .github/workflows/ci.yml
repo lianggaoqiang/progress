@@ -1,0 +1,34 @@
+name: Build and Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      runner:
+        description: "Choose a Runner"
+        required: true
+        default: "Linux"
+        type: choice
+        options:
+          - Linux
+          - All Runners
+
+jobs:
+  Linux:
+    uses: ./.github/workflows/common.yml
+    with:
+      RUNNERS: '["ubuntu-latest"]'
+      GO_VERSIONS: '["1.18", "1.21.x"]'
+
+  Windows:
+    if: ${{ inputs.runner == 'All Runners' }}
+    uses: ./.github/workflows/common.yml
+    with:
+      RUNNERS: '["windows-latest"]'
+      GO_VERSIONS: '["1.18", "1.21.x"]'
+
+  Macos:
+    if: ${{ inputs.runner == 'All Runners' }}
+    uses: ./.github/workflows/common.yml
+    with:
+      RUNNERS: '["macos-latest"]'
+      GO_VERSIONS: '["1.18", "1.21.x"]'
