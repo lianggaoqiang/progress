@@ -4,6 +4,7 @@ A thread-safe progress bar printing program, which is designed for printing mult
 
 This Golang package is cross-platform which works perfectly on Linux, Windows and MacOS. It provides many very simple apis to render the progress bar with diverse styles that you want, in addition, you can also combine these different styles of progress bars in any format.
 ssss
+
 <br>
 
 ## Install
