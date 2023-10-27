@@ -86,7 +86,7 @@ If you want to change the color of the progress bar, you can use built-in color 
 ```go
 import "github.com/lianggaoqiang/progress"
 
-// Both progress.XxxText(str, progress.Xxx) and progress.XxxText(str) is okay
+// Both progress.ColorText(str, progress.Xxx) and progress.XxxText(str) is okay
 // Xxx may be Black, Red, Green, Yellow, Blue, Purple, Cyan, White
 func main() {
 	p := progress.Start()
