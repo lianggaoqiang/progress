@@ -135,7 +135,7 @@ func main(){
 
 <img src="https://github.com/lianggaoqiang/progress/blob/main/doc/loading-bar.gif" style="width:70%" />
 
-You may have noticed that when we creating a LoadingBar, we need write "Loading" three times. While this is fine for short text, if the text is longer, it can cause significant inconvenience. At this point, we can use hyphen(-) to represent the previous text in steps parameter, just like the following(see more parsing rules of custom syntax at [FAQ](#faq)):
+The first parameter of NewLoadingBar is the interval of each render, and the remaining parameters are the texts will be printed at each render. You may have noticed that when we creating a LoadingBar, we need write "Loading" three times. While this is fine for short text, if the text is longer, it can cause significant inconvenience. At this point, we can use hyphen(-) to represent the previous text in steps parameter, just like the following(see more parsing rules of custom syntax at [FAQ](#faq)):
 
 ```go
 lb := progress.NewLoadingBar(300, "Loading", "-.", "-.", "-.")
@@ -224,3 +224,6 @@ func main() {
 
    - PercentOverflow: if set, the percent value displayed will be able to exceed 100%
    - AutoStop: if set, Progress will be set as a stopped state automatically when all Bars' N-property >= 100. it requires PercentOverflow flag not be set.
+    ```go
+     p := progress.StartWithFlag(progress.HideCursor | progress.DisableInput | progress.AutoStop)
+     ```
