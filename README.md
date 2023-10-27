@@ -223,7 +223,7 @@ func main() {
    - ResizeReactively: if set, terminal window size will be got before each printing or writing
 
    - PercentOverflow: if set, the percent value displayed will be able to exceed 100%
-   - AutoStop: if set, Progress will be set as a stopped state automatically when all Bars' N-property >= 100. it requires PercentOverflow flag not be set.
+   - AutoStop: if set, Progress will automatically stopped when all DefaultBars' percent value >= 100 and all LoadingBars are stopped. it requires PercentOverflow flag not be set.
     ```go
      p := progress.StartWithFlag(progress.HideCursor | progress.DisableInput | progress.AutoStop)
      ```
