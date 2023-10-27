@@ -34,8 +34,7 @@ const (
 	ResizeReactively uint8 = 0x04 // if set, terminal window size will be got before each printing or writing
 
 	PercentOverflow uint8 = 0x10 // if set, the percent value displayed will be able to exceed 100%
-	AutoStop        uint8 = 0x08 // if set, Progress will be set as a stopped state automatically
-	// when all Bars' N-property >= 100. it requires PercentOverflow flag not be set.
+	AutoStop        uint8 = 0x08 // if set, progress will stopped when all DefaultBars' percent value >= 100 and all LoadingBars are stopped
 )
 
 // define colors
